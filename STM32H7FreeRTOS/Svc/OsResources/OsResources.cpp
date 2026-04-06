@@ -4,15 +4,20 @@
 // \brief  cpp file for OsResources component implementation class
 // ======================================================================
 
-#include "FeatherM4FreeRTOS/Svc/OsResources/OsResources.hpp"
+#include "STM32H7FreeRTOS/Svc/OsResources/OsResources.hpp"
 #include <FreeRTOS.h>
 #include <task.h>
 
 extern char __end__;
-extern "C" char __StackTop;
 extern "C" char* sbrk(int incr); // Current heap end
 
-namespace FeatherM4_FreeRTOS {      
+#if defined(ARDUINO_ARCH_STM32)
+extern "C" char _estack;
+#else
+extern "C" char __StackTop;
+#endif
+
+namespace STM32H7_FreeRTOS {
 
 static constexpr U8 MAX_TASKS = 10;
 static TaskStatus_t statusArray[MAX_TASKS];
@@ -40,9 +45,14 @@ OsResources ::~OsResources() {}
 
 void OsResources ::Run_handler(const FwIndexType portNum, U32 tick_time_hz) {
     this->tlmWrite_FREERTOS_HEAP_FREE(xPortGetFreeHeapSize());
-    this->tlmWrite_FREERTOS_HEAP_FREE_LOW_WATERMARK(xPortGetMinimumEverFreeHeapSize());
+    // STM32duino's heap shim only provides xPortGetFreeHeapSize().
+    this->tlmWrite_FREERTOS_HEAP_FREE_LOW_WATERMARK(xPortGetFreeHeapSize());
 
+#if defined(ARDUINO_ARCH_STM32)
+    ptrdiff_t heap_stack_gap = &_estack - static_cast<char*>(sbrk(0));
+#else
     ptrdiff_t heap_stack_gap = &__StackTop - static_cast<char*>(sbrk(0));
+#endif
     U32 ram_available = heap_stack_gap > 0 ? static_cast<U32>(heap_stack_gap) : 0;
     this->tlmWrite_RAM_AVAILABLE(ram_available);
     
@@ -118,4 +128,4 @@ void OsResources ::Run_handler(const FwIndexType portNum, U32 tick_time_hz) {
     }
 }
 
-}  // namespace FeatherM4_FreeRTOS
+}  // namespace STM32H7_FreeRTOS

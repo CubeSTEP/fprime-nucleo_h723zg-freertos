@@ -1,4 +1,4 @@
-module FeatherM4_FreeRTOS {
+module STM32H7_FreeRTOS {
 
     @ Component that reports key platform resource information
     passive component OsResources {
