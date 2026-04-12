@@ -1,4 +1,4 @@
-# fprime-featherm4-freertos/library.cmake
+# fprime-nucleo_h723zg-freertos/library.cmake
 # This is a meta-library used only to pull in submodules.
 # No components or modules are defined here.
 
