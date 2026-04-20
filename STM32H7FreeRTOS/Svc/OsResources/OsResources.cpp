@@ -7,6 +7,7 @@
 #include "STM32H7FreeRTOS/Svc/OsResources/OsResources.hpp"
 #include <FreeRTOS.h>
 #include <task.h>
+#include <cstring>
 
 extern char __end__;
 extern "C" char* sbrk(int incr); // Current heap end
