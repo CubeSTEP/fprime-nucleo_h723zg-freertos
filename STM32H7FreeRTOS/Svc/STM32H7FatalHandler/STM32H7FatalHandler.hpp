@@ -1,27 +1,27 @@
 // ======================================================================
-// \title  FeatherM4FatalHandler.hpp
-// \brief  Fatal Hanlder specifically developed for the FeatherM4 placeholder. Use fprime-util impl
+// 	itle  STM32H7FatalHandler.hpp
+// \brief  Fatal handler for STM32H7 FreeRTOS deployments.
 // ======================================================================
 
-#ifndef FeatherM4_FreeRTOS_FatalHandler_HPP
-#define FeatherM4_FreeRTOS_FatalHandler_HPP
+#ifndef STM32H7_FreeRTOS_FatalHandler_HPP
+#define STM32H7_FreeRTOS_FatalHandler_HPP
 
-#include "FeatherM4FreeRTOS/Svc/FeatherM4FatalHandler/FeatherM4FatalHandlerComponentAc.hpp"
+#include "STM32H7FreeRTOS/Svc/STM32H7FatalHandler/STM32H7FatalHandlerComponentAc.hpp"
 
-namespace FeatherM4_FreeRTOS {
+namespace STM32H7_FreeRTOS {
 
-class FeatherM4FatalHandler final : public FeatherM4FatalHandlerComponentBase {
+class STM32H7FatalHandler final : public STM32H7FatalHandlerComponentBase {
   public:
     // ----------------------------------------------------------------------
     // Component construction and destruction
     // ----------------------------------------------------------------------
 
-    //! Construct FeatherM4FatalHandler object
-    FeatherM4FatalHandler(const char* const compName  //!< The component name
+    //! Construct STM32H7FatalHandler object
+    STM32H7FatalHandler(const char* const compName  //!< The component name
     );
 
-    //! Destroy FeatherM4FatalHandler object
-    ~FeatherM4FatalHandler();
+    //! Destroy STM32H7FatalHandler object
+    ~STM32H7FatalHandler();
 
   private:
     // ----------------------------------------------------------------------
@@ -36,6 +36,6 @@ class FeatherM4FatalHandler final : public FeatherM4FatalHandlerComponentBase {
                               ) override;
 };
 
-}  // namespace FeatherM4_FreeRTOS
+}  // namespace STM32H7_FreeRTOS
 
 #endif

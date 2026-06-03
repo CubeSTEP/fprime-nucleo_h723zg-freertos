@@ -4,12 +4,12 @@
 // \brief  hpp file for OsResources component implementation class
 // ======================================================================
 
-#ifndef FeatherM4_FreeRTOS_OsResources_HPP
-#define FeatherM4_FreeRTOS_OsResources_HPP
+#ifndef STM32H7_FreeRTOS_OsResources_HPP
+#define STM32H7_FreeRTOS_OsResources_HPP
 
-#include "FeatherM4FreeRTOS/Svc/OsResources/OsResourcesComponentAc.hpp"
+#include "STM32H7FreeRTOS/Svc/OsResources/OsResourcesComponentAc.hpp"
 
-namespace FeatherM4_FreeRTOS {
+namespace STM32H7_FreeRTOS {
 
 class OsResources final : public OsResourcesComponentBase {
   public:
@@ -36,6 +36,6 @@ class OsResources final : public OsResourcesComponentBase {
     );
 };
 
-}  // namespace FeatherM4_FreeRTOS
+}  // namespace STM32H7_FreeRTOS
 
 #endif
