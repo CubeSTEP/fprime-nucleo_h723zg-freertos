@@ -9,6 +9,8 @@ if (FPRIME_TOOLCHAIN_NAME STREQUAL "stm32h7_FreeRTOS"
 
     # Set the path to the Arduino libraries directory
     set(ARDUINO_LIB_PATH "$ENV{HOME}/Arduino/libraries")
+
+    # TODO: Future Enhancement: Determine the path location instead of hardcoding the path here, Can break in the future.  
     set(ARDUINO_STM32_LIB_PATH "$ENV{HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.12.0")
 
     # Include directories for Arduino libraries

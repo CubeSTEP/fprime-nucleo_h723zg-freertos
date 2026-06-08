@@ -15,6 +15,3 @@ set(ARDUINO_BUILD_PROPERTIES
 )
 
 target_use_arduino_libraries("STM32FreeRTOS")
-
-# include(fprime-arduino/cmake/toolchain/nucleo_H723ZG.cmake)
-# include(../../fprime-arduino/cmake/toolchain/nucleo_H723ZG.cmake)
