@@ -4,3 +4,4 @@
 [submodule "fprime-arduino"]
         path = fprime-arduino
         url = https://github.com/CubeSTEP/fprime-arduino.git
+        branch = generic-toolchain
