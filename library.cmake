@@ -30,6 +30,8 @@ if (FPRIME_TOOLCHAIN_NAME STREQUAL "stm32h7_FreeRTOS"
     add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/fprime-arduino/Arduino/Svc/ArduinoTime")
     add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/fprime-arduino/Arduino/Svc/LifeLed")
     include("${CMAKE_CURRENT_LIST_DIR}/fprime-freertos/library.cmake")
+    add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/STM32H7FreeRTOS/Svc/OsResources")
+    add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/STM32H7FreeRTOS/Svc/STM32H7FatalHandler")
 
     # NOTE: This corresponds to STM32FreeRTOS.h from the STM32duino_FreeRTOS library
     target_use_arduino_libraries("STM32FreeRTOS")
